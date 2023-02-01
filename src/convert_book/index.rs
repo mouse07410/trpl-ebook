@@ -11,7 +11,7 @@ const FILENAME_PATTRN: &'static str =
 
 type FileListing = Vec<(String, String)>;
 
-fn list_file_groups(path: &str) -> Result<FileListing, Box<Error>> {
+fn list_file_groups(path: &str) -> Result<FileListing, Box<dyn Error>> {
     let filename_pattern = Regex::new(FILENAME_PATTRN).unwrap();
 
     let files = try!(fs::read_dir(&Path::new(path)))
@@ -37,7 +37,7 @@ fn list_file_groups(path: &str) -> Result<FileListing, Box<Error>> {
     Ok(files)
 }
 
-pub fn render_index(path: &str) -> Result<String, Box<Error>> {
+pub fn render_index(path: &str) -> Result<String, Box<dyn Error>> {
     let filename_pattern = Regex::new(FILENAME_PATTRN).unwrap();
 
     let files = try!(list_file_groups(path));

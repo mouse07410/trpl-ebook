@@ -3,7 +3,7 @@ use regex::{Regex, Captures};
 
 const CODE_BLOCK_TOGGLE: &'static str = "```";
 
-pub fn adjust_reference_name(input: &str, prefix: &str) -> Result<String, Box<Error>> {
+pub fn adjust_reference_name(input: &str, prefix: &str) -> Result<String, Box<dyn Error>> {
     let reference_link = Regex::new(r"(?x)
         \]\[                # This is a link to a reference
         (?P<id>.+?)         # The reference name
