@@ -8,6 +8,6 @@ dist/
 *.toc
 *.out
 *.log
-*.pdf
 */*.log
+*.pdf
 *.fdb_latexmk
