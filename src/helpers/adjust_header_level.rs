@@ -6,7 +6,7 @@ const CODE_BLOCK_TOGGLE: &'static str = "```";
 
 pub type HeaderLevel = i32;
 
-pub fn adjust_header_level(input: &str, base_level: HeaderLevel) -> Result<String, Box<Error>> {
+pub fn adjust_header_level(input: &str, base_level: HeaderLevel) -> Result<String, Box<dyn Error>> {
     let headline_pattern = Regex::new(r"(?x)
         ^
         (?P<level>[\x23]+)  # A bunch of hash symbols

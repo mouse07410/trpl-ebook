@@ -11,7 +11,7 @@ use helpers;
 use convert_book::pandoc::save_as;
 
 /// Render book in different formats
-pub fn render_book(prefix: &str, src_path: &Path, meta_file: &str) -> Result<(), Box<Error>> {
+pub fn render_book(prefix: &str, src_path: &Path, meta_file: &str) -> Result<(), Box<dyn Error>> {
     let meta_data = helpers::file::get_file_content(meta_file)?;
 
     let book = markdown::to_single_file(src_path,

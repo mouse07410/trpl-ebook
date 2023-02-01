@@ -28,7 +28,7 @@ impl Error for CommandError {
     }
 }
 
-pub fn run(command: &str, args: &str, input: &str) -> Result<String, Box<Error>> {
+pub fn run(command: &str, args: &str, input: &str) -> Result<String, Box<dyn Error>> {
     let args: Vec<&str> = if args.is_empty() {
         vec![]
     } else {
