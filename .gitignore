@@ -3,3 +3,8 @@ log.json
 .DS_Store
 dist/
 *.bk
+*.aux
+*.fls
+*.toc
+*.out
+*.fdb_latexmk
