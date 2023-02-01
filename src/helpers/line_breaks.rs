@@ -1,6 +1,6 @@
 use std::error::Error;
 
-pub fn break_long_line(line: &str, max_len: usize, sep: &str) -> Result<String, Box<dyn Error>> {
+pub fn break_long_line(line: &str, max_len: usize, sep: &str) -> Result<String, Box<Error>> {
     let sep_length = sep.chars().count() as usize;
     let mut output = String::with_capacity(line.len());
 

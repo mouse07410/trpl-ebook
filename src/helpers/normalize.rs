@@ -3,7 +3,7 @@ use regex::Regex;
 
 use helpers::normalize_code_blocks::*;
 
-fn normalize_links(input: &str) -> Result<String, Box<dyn Error>> {
+fn normalize_links(input: &str) -> Result<String, Box<Error>> {
     let mut output = input.replace(r"../std", r"http://doc.rust-lang.org/std")
                           .replace(r"../reference",
                                    r"http://doc.rust-lang.org/reference")
@@ -31,13 +31,13 @@ fn normalize_links(input: &str) -> Result<String, Box<dyn Error>> {
     Ok(output)
 }
 
-fn normalize_math(input: &str) -> Result<String, Box<dyn Error>> {
+fn normalize_math(input: &str) -> Result<String, Box<Error>> {
     let superscript = Regex::new(r"(\d+)<sup>(\d+)</sup>").unwrap();
     Ok(superscript.replace_all(&input, r"$1^$2^"))
 }
 
 
-pub fn normalize(input: &str) -> Result<String, Box<dyn Error>> {
+pub fn normalize(input: &str) -> Result<String, Box<Error>> {
     let mut output;
 
     output = try!(break_code_blocks(&input, 87, "↳ "));
