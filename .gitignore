@@ -7,4 +7,6 @@ dist/
 *.fls
 *.toc
 *.out
+*.log
+*/*.log
 *.fdb_latexmk
