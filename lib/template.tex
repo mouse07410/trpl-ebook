@@ -21,7 +21,7 @@ $endif$
 \usepackage{graphicx}
 
 \usepackage{longtable}
-\usepackage{booktabs}
+\usepackage{tabularx, booktabs}
 \usepackage[htt]{hyphenat}
 
 \usepackage{amssymb}
@@ -75,6 +75,9 @@ $endif$
     \usepackage{xltxtra,xunicode}
     \usepackage{xeCJK}
     \setCJKmainfont{IPAexMincho}
+    \usepackage{fontspec}
+    %\usepackage{CJKutf8}
+    %\newenvironment{CJKlang}{\begin{CJK}{UTF8}{min}}{\end{CJK}}
   \else
     \usepackage{fontspec}
   \fi
