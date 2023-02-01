@@ -1,6 +1,6 @@
 pub const RELEASE_DATE: &'static str = "2023-01-31";
 
-pub const MARKDOWN: &'static str = "markdown+grid_tables+pipe_tables-simple_tables+raw_html+implicit_figures+footnotes+intraword_underscores+auto_identifiers-inline_code_attributes";
+pub const MARKDOWN: &'static str = "markdown+smart+grid_tables+pipe_tables-simple_tables+raw_html+implicit_figures+footnotes+intraword_underscores+auto_identifiers-inline_code_attributes";
 
 pub const HTML:  &'static str = "--embed-resources --standalone --highlight-style=tango --table-of-contents --section-divs --template=lib/template.html --css=lib/pandoc.css --to=html5";
 
