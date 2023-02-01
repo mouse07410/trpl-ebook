@@ -31,15 +31,6 @@ $ mkdir hello_world
 $ cd hello_world
 ```
 
-For Windows CMD, enter this:
-
-```cmd
-> mkdir "%USERPROFILE%\projects"
-> cd /d "%USERPROFILE%\projects"
-> mkdir hello_world
-> cd hello_world
-```
-
 ### Writing and Running a Rust Program
 
 Next, make a new source file and call it *main.rs*. Rust files always end with
@@ -66,14 +57,6 @@ commands to compile and run the file:
 ```console
 $ rustc main.rs
 $ ./main
-Hello, world!
-```
-
-On Windows, enter the command `.\main.exe` instead of `./main`:
-
-```powershell
-> rustc main.rs
-> .\main.exe
 Hello, world!
 ```
 
@@ -177,7 +160,7 @@ Windows, a file containing debugging information with the *.pdb* extension.
 From here, you run the *main* or *main.exe* file, like this:
 
 ```console
-$ ./main # or .\main.exe on Windows
+$ ./main 
 ```
 
 If your *main.rs* is your “Hello, world!” program, this line prints `Hello,
