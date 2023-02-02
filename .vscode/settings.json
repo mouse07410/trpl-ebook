@@ -1,8 +1,56 @@
 {
+   "actionButtons": {
+        "commands": [
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "Cargo check",
+                "color": "white",
+                "singleInstance": true,
+                "command": "cargo check"
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "Cargo clippy",
+                "color": "white",
+                "singleInstance": true,
+                "command": "cargo clippy"
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "Cargo build",
+                "color": "white",
+                "singleInstance": true,
+                "command": "cargo build"
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "Cargo run",
+                "color": "white",
+                "singleInstance": true,
+                "command": "cargo run"
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "Cargo test",
+                "color": "white",
+                "singleInstance": true,
+                "command": "cargo test"
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "Cargo update",
+                "color": "white",
+                "singleInstance": true,
+                "command": "cargo update"
+            }
+
+        ]
+    },
     "cSpell.words": [
         "divs",
         "epub",
         "Rustc",
+        "trpl",
         "upquote"
     ]
 }
