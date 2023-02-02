@@ -19,7 +19,7 @@ $endif$
 \usepackage[$if(papersize)$$papersize$$else$a4paper$endif$]{geometry}
 
 \usepackage{graphicx}
-
+\usepackage[utf8x]{inputenc}
 \usepackage{longtable}
 \usepackage{tabularx, booktabs}
 \usepackage[htt]{hyphenat}
@@ -65,7 +65,6 @@ $endif$
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
   $if(euro)$
     \usepackage{eurosym}
   $endif$
@@ -76,8 +75,8 @@ $endif$
     \usepackage{xeCJK}
     \setCJKmainfont{IPAexMincho}
     \usepackage{fontspec}
-    %\usepackage{CJKutf8}
-    %\newenvironment{CJKlang}{\begin{CJK}{UTF8}{min}}{\end{CJK}}
+    \usepackage{CJKutf8}
+    \newenvironment{CJKlang}{\begin{CJK}{UTF8}{min}}{\end{CJK}}
   \else
     \usepackage{fontspec}
   \fi
