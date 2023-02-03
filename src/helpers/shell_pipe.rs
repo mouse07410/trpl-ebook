@@ -1,4 +1,4 @@
-use std::error::Error;
+pub(crate) use std::error::Error;
 use std::fmt;
 
 use std::io::prelude::*;
@@ -40,23 +40,23 @@ pub fn run(command: &str, args: &str, input: &str) -> Result<String, Box<dyn Err
         }).collect()
     };
 
-    let process = try!(
+    let process =
         Command::new(command)
                 .args(&args)
                 .stdin(Stdio::piped())
                 .stdout(Stdio::piped())
                 .spawn()
-    );
+    ?;
 
     {
-        let mut stdin: process::ChildStdin = try!(process.stdin.ok_or(CommandError::StdIn));
-        try!(stdin.write_all(input.as_bytes()));
+        let mut stdin: process::ChildStdin = process.stdin.ok_or(CommandError::StdIn)?;
+        stdin.write_all(input.as_bytes())?;
     }
 
     let mut output = String::new();
 
-    let mut stdout: process::ChildStdout = try!(process.stdout.ok_or(CommandError::StdOut));
-    try!(stdout.read_to_string(&mut output));
+    let mut stdout: process::ChildStdout = process.stdout.ok_or(CommandError::StdOut)?;
+    stdout.read_to_string(&mut output)?;
 
     Ok(output)
 }
