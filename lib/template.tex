@@ -20,6 +20,8 @@ $endif$
 
 \usepackage{graphicx}
 \usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
 \usepackage{longtable}
 \usepackage{tabularx, booktabs}
 \usepackage[htt]{hyphenat}
@@ -64,7 +66,6 @@ $endif$
  #2 (\autoref{#1}, page~\pageref{#1})}
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
   $if(euro)$
     \usepackage{eurosym}
   $endif$
@@ -74,11 +75,8 @@ $endif$
     \usepackage{xltxtra,xunicode}
     \usepackage{xeCJK}
     \setCJKmainfont{IPAexMincho}
-    \usepackage{fontspec}
     \usepackage{CJKutf8}
     \newenvironment{CJKlang}{\begin{CJK}{UTF8}{min}}{\end{CJK}}
-  \else
-    \usepackage{fontspec}
   \fi
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
@@ -143,7 +141,7 @@ $if(listings)$
       breakatwhitespace=true,
       breakautoindent=true,
       escapeinside={\%*}{*)},
-      linewidth=\textwidth,
+      %linewidth=\textwidth,
       basewidth=0.5em,
   }
 $endif$
