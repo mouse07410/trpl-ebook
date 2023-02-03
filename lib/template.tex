@@ -21,7 +21,6 @@ $endif$
 \usepackage{graphicx}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{fontspec}
 \usepackage{longtable}
 \usepackage{tabularx, booktabs}
 \usepackage[htt]{hyphenat}
@@ -77,6 +76,9 @@ $endif$
     \setCJKmainfont{IPAexMincho}
     \usepackage{CJKutf8}
     \newenvironment{CJKlang}{\begin{CJK}{UTF8}{min}}{\end{CJK}}
+    \usepackage{fontspec}
+  \else
+    \usepackage{fontspec}
   \fi
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
@@ -141,7 +143,7 @@ $if(listings)$
       breakatwhitespace=true,
       breakautoindent=true,
       escapeinside={\%*}{*)},
-      %linewidth=\textwidth,
+      linewidth=\textwidth,
       basewidth=0.5em,
   }
 $endif$
