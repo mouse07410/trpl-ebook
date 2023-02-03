@@ -1,4 +1,4 @@
-use std::error::Error;
+pub(crate) use std::error::Error;
 use regex::Regex;
 
 use helpers::normalize_code_blocks::*;
@@ -40,10 +40,10 @@ fn normalize_math(input: &str) -> Result<String, Box<dyn Error>> {
 pub fn normalize(input: &str) -> Result<String, Box<dyn Error>> {
     let mut output;
 
-    output = try!(break_code_blocks(&input, 87, "↳ "));
-    output = try!(normalize_code_start(&output));
-    output = try!(normalize_links(&output));
-    output = try!(normalize_math(&output));
+    output = break_code_blocks(&input, 87, "↳ ")?;
+    output = normalize_code_start(&output)?;
+    output = normalize_links(&output)?;
+    output = normalize_math(&output)?;
 
     Ok(output)
 }

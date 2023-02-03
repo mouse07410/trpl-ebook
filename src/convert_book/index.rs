@@ -2,7 +2,7 @@ use std::error::Error;
 use std::path::Path;
 use std::fs;
 use std::collections::BTreeMap;
-use std::ascii::AsciiExt;
+//use std::ascii::AsciiExt;
 
 use regex::Regex;
 
@@ -14,13 +14,13 @@ type FileListing = Vec<(String, String)>;
 fn list_file_groups(path: &str) -> Result<FileListing, Box<dyn Error>> {
     let filename_pattern = Regex::new(FILENAME_PATTRN).unwrap();
 
-    let files = try!(fs::read_dir(&Path::new(path)))
-    .filter(Result::is_ok)
-    .map(|x| x.unwrap().path())
-    .filter_map(|x| {
-        x.file_name()
-         .and_then(|a| { a.to_str() })
-         .and_then(|b| -> Option<String> { Some(b.into()) })
+    let files = fs::read_dir(&Path::new(path))?
+        .filter(Result::is_ok)
+        .map(|x| x.unwrap().path())
+        .filter_map(|x| {
+            x.file_name()
+                .and_then(|a| { a.to_str() })
+                .and_then(|b| -> Option<String> { Some(b.into()) })
     })
     .flat_map(|name| -> Option<(String, String)> {
         // Extract the date from names like 'trpl-2015-05-13.a4.pdf'.
@@ -40,7 +40,7 @@ fn list_file_groups(path: &str) -> Result<FileListing, Box<dyn Error>> {
 pub fn render_index(path: &str) -> Result<String, Box<dyn Error>> {
     let filename_pattern = Regex::new(FILENAME_PATTRN).unwrap();
 
-    let files = try!(list_file_groups(path));
+    let files = list_file_groups(path)?;
     let mut versions: BTreeMap<String, Vec<String>> = BTreeMap::new();
 
     for &(ref version, ref filename) in &files {

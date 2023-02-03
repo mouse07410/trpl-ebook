@@ -55,7 +55,7 @@ fn code_block_breaking() {
     let long_code_block = "If we truly want a reference, we need the other option: ensure that our reference goes out of scope before we try to do the mutation. That looks like this:
 
 ```text
-Whew! The Rust compiler gives quite detailed errors at times, and this is one of those times. As the error explains, while we made our binding mutable, we still cannot call `push`. This is because we already have a reference to an element of the vector, `y`. Mutating something while another reference exists is dangerous, because we may invalidate the reference. In this speciffic case, when we create the vector, we may have only allocated space for three elements. Adding a fourth would mean allocating a new chunk of memory for all thosee elements, copying the old values over, and updating the internal pointer to that memory. That all works just fine.
+Whew! The Rust compiler gives quite detailed errors at times, and this is one of those times. As the error explains, while we made our binding mutable, we still cannot call `push`. This is because we already have a reference to an element of the vector, `y`. Mutating something while another reference exists is dangerous, because we may invalidate the reference. In this specific case, when we create the vector, we may have only allocated space for three elements. Adding a fourth would mean allocating a new chunk of memory for all thosee elements, copying the old values over, and updating the internal pointer to that memory. That all works just fine.
 ```
 
 We created an inner scope with an additional set of curly braces. `y` will go out of scope before we call `push()`, and so we’re all good.";
@@ -63,15 +63,15 @@ We created an inner scope with an additional set of curly braces. `y` will go ou
     let code_block_broken_down = "If we truly want a reference, we need the other option: ensure that our reference goes out of scope before we try to do the mutation. That looks like this:
 
 ```text
-Whew! The Rust compiler gives quite detailed errors at times, and this is one o
-↳ f those times. As the error explains, while we made our binding mutable, we s
-↳ till cannot call `push`. This is because we already have a reference to an el
-↳ ement of the vector, `y`. Mutating something while another reference exists i
-↳ s dangerous, because we may invalidate the reference. In this speciffic case,
-↳  when we create the vector, we may have only allocated space for three elemen
-↳ ts. Adding a fourth would mean allocating a new chunk of memory for all those
-↳ e elements, copying the old values over, and updating the internal pointer to
-↳  that memory. That all works just fine.
+Whew! The Rust compiler gives quite detailed errors at times, and this is one of
+those times. As the error explains, while we made our binding mutable,  we still
+cannot call `push`. This is because we already have a reference to an element of
+the vector, `y`. Mutating something while another reference exists is dangerous,
+because we may invalidate the reference. In this specific case,   when we create
+the vector, we may have only allocated space for three elements. Adding a fourth
+would mean allocating a new chunk of memory for all those elements,  copying the
+old values over and updating the internal pointer to that memory. That all works
+just fine.
 ```
 
 We created an inner scope with an additional set of curly braces. `y` will go out of scope before we call `push()`, and so we’re all good.

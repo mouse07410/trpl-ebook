@@ -2,7 +2,7 @@
 //!
 //! ['The Rust Programming Language'][trpl] is originally published as Markdown
 //! and rendered by _rustbook_. This set of scripts does some transformations
-//! and uses _Pandoc_ to render it as HTML, EPUB and PDF (usign LaTeX).
+//! and uses _Pandoc_ to render it as HTML, EPUB and PDF (using LaTeX).
 //!
 //! [trpl]: http://doc.rust-lang.org/book/
 

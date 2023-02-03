@@ -1,5 +1,5 @@
 use std::error::Error;
-use std::ascii::AsciiExt;
+// use std::ascii::AsciiExt;
 
 use helpers::shell_pipe;
 use convert_book::options;

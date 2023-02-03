@@ -79,8 +79,8 @@ pub fn to_single_file(src_path: &Path, meta: &str) -> Result<String, Box<dyn Err
 
     {
         // Readme ~ "Getting Started"
-        let file = try!(file::get_file_content(&src_path.join("README.md")));
-        let mut content = try!(adjust_header_level::adjust_header_level(&file, 1));
+        let file = file::get_file_content(&src_path.join("README.md"))?;
+        let mut content = adjust_header_level::adjust_header_level(&file, 1)?;
         content = remove_file_title::remove_file_title(&content)?;
         content = adjust_reference_names::adjust_reference_name(&content, "readme")?;
         content = match normalize::normalize(&content) {
@@ -97,9 +97,9 @@ pub fn to_single_file(src_path: &Path, meta: &str) -> Result<String, Box<dyn Err
     }
 
     for chapter in &get_chapters(&toc) {
-        let file = try!(file::get_file_content(&src_path.join(&chapter.file)));
+        let file = file::get_file_content(&src_path.join(&chapter.file))?;
 
-        let mut content = try!(adjust_header_level::adjust_header_level(&file, 3));
+        let mut content = adjust_header_level::adjust_header_level(&file, 3)?;
         content = remove_file_title::remove_file_title(&content)?;
         content = adjust_reference_names::adjust_reference_name(&content, &chapter.file)?;
         content = match normalize::normalize(&content) {

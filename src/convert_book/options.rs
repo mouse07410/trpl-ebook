@@ -7,4 +7,3 @@ pub const HTML:  &'static str = "--embed-resources --standalone --highlight-styl
 pub const EPUB:  &'static str = "--embed-resources --standalone --highlight-style=tango --css=lib/epub.css --table-of-contents";
 
 pub const LATEX: &'static str = "--embed-resources --standalone --highlight-style=tango --top-level-division=chapter --table-of-contents --template=lib/template.tex --pdf-engine=xelatex --to=latex --pdf-engine-opt=--interaction=nonstopmode";
-//  --pdf-engine-opt=--interaction=nonstopmode
